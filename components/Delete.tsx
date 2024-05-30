@@ -1,5 +1,6 @@
 "use client"
 
+import { Modal } from "flowbite-react";
 import axios from "axios";
 import { useState } from "react"
 
@@ -23,7 +24,7 @@ export function Animation({click, setClick, placeholder, title, setTodoItems, id
     }
 
 
-    function handleSubmit(event: any){
+    function handleSubmit(){
 
         if(title === "Update"){
             axios.patch("http://localhost:3000/api/todo/update", {newTodo: input , todoId : id}).then((response)=>{
@@ -50,23 +51,20 @@ export function Animation({click, setClick, placeholder, title, setTodoItems, id
 
 
     return (
-  
-            <div className={click? "top-0 left-0 top-0 w-screen h-screen backdrop-blur-xs bg-opacity-25 bg-slate-700 absolute flex justify-center items-center": "hidden"} >
-                <div className="flex justify-center items-center w-full h-full">
-                    <div className="bg-white w-5/12 dark:bg-gray-900 p-6 rounded-lg">
-                        <div className="flex justify-between mb-4">
-                            <span className="pl-2 font-semibold">{title}</span>
-                            <span onClick={handleClick} className="text-md cursor-pointer bg-gray-200 dark:bg-gray-700 px-2 rounded-full">x</span>
+
+            <Modal show={click} size="3xl" onClose={handleClick} popup>
+                <Modal.Header />
+                <Modal.Body>
+                    <div className="space-y-6">
+                        <h3 className="text-xl font-medium text-gray-900 dark:text-white">{title}</h3>
+                        <div className="">
+                            <input autoFocus={true} name="todoInput" onChange={handleChange} className="bg-transparent w-full focus:outline-none focus:border-gray-400 focus:ring-0 font-semibold dark:text-gray-400 rounded-lg" placeholder={placeholder} type="text" />
                         </div>
-                        <input name="todoInput" onChange={handleChange} className="border-2 dark:bg-gray-900 dark:border-gray-700 w-full text-lg pl-2 rounded-md mb-4" type="text" placeholder={placeholder}  />
-                        {/* <div className="flex mb-4">
-                            <input className="border-2 rounded-md px-2 text-lg"  placeholder="date-time" type="datetime-local" name="" id="" />
-                        </div> */}
                         <div>
-                            <button onClick={handleSubmit} className="bg-indigo-600 dark:bg-indigo-800 dark:hover:bg-indigo-700  px-2 py-1 hover:bg-indigo-700 text-white  text-md rounded-md">Submit</button>
+                            <button onClick={handleSubmit}  className="bg-indigo-800 hover:bg-indigo-700 rounded-lg p-2">Submit</button>
                         </div>
                     </div>
-                </div>
-            </div>
+                </Modal.Body>
+            </Modal>
     )
 }

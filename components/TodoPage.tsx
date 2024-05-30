@@ -53,7 +53,7 @@ export default  function TodoPage( {todoList} : any){
     return (
         <div className="w-screen h-screen dark:text-gray-300 ">
             <div className="w-full h-full flex justify-center pt-6 items-start">
-                <div className="flex flex-col w-7/12 justify-center">
+                <div className="flex flex-col w-9/12 justify-center">
                     <ThemeSwitcher/>
                     <div className="text-center mb-6">
                         <h1 className="font-bold text-2xl">ToDo List</h1>

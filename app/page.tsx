@@ -17,9 +17,6 @@ export default function Home() {
             <span className="ml-4">Task</span>
             <span className="mr-6">Action</span>
           </div>
-          <TodoItem id="1"/>
-          <TodoItem id="2"/>
-          <TodoItem id="3"/>
 
 
         </div>

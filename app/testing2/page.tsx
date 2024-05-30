@@ -1,8 +1,11 @@
+import { SlidingSideBar } from "@/components/SlidingSideBar";
 
-import { Calender } from "@/components/Calender";
-
-export default function(){
-    return(
-       <Calender/>
-    )
+function App() {
+  return (
+    <div className="flex flex-col items-center justify-center min-h-screen py-2">
+        <SlidingSideBar/>
+    </div>
+  );
 }
+
+export default App;

@@ -1,7 +1,7 @@
 "use client";
 import { Datepicker } from "flowbite-react";
 import { useState } from "react";
-
+import { Button, Navbar } from "flowbite-react";
 
 
 
@@ -32,7 +32,7 @@ export function Calender() {
       days: {
         items: {
           item: {
-            selected : "bg-indigo-800 text-white hover:bg-indigo-800"
+            selected : "dark:bg-indigo-800 bg-cyan-700 text-white hover:bg-indigo-800"
           }
         }
       },
@@ -70,8 +70,8 @@ export function Calender() {
 
   return (
     // <Flowbite theme={{ theme: customTheme }}>
-
-      <Datepicker inline theme={customTheme} onSelectedDateChanged={handleDateChange} />
+      
+        <Datepicker inline theme={customTheme} onSelectedDateChanged={handleDateChange} />
 
   )
 }
